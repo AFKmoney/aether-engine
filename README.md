@@ -89,6 +89,8 @@ An offline edge specialization engine tuned for 1.2B–3B code models (e.g., `qw
 ### The Web Desktop GUI (`GET /desktop`)
 A self-contained HTML5/Canvas interactive operating system desktop served directly by the engine at `http://localhost:3004/desktop`. It features fully draggable floating OS windows, a real-time autonomous multi-persona shell, interactive Akasha memory network visualizers, and dual-reactor KPI monitors.
 
+![HermesOS Web Desktop Interface](desktop_screenshot.png)
+
 ---
 
 ## API Reference
