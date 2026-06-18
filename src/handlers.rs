@@ -1565,4 +1565,40 @@ pub async fn mcts_speculation_tree(
     }))
 }
 
+// ===========================================================================
+// HOLY GRAIL OFFLINE 1.2B AUTOCODER ADDITIONS (v4.1)
+// ===========================================================================
+
+#[derive(Deserialize)]
+pub struct AutoCoderRequest {
+    pub specification: String,
+    pub target_language: String,
+}
+
+/// Run the high-speed Offline 1.2B Autocoding & Self-Healing Loop (`POST /v1/autocoder/run`).
+pub async fn run_autocoder_endpoint(
+    State(state): State<AppState>,
+    Json(req): Json<AutoCoderRequest>,
+) -> impl IntoResponse {
+    let vectorizer = {
+        let g = state.graph.lock().await;
+        g.vectorizer.clone()
+    };
+    
+    let target_lang = if req.target_language.is_empty() { "python" } else { &req.target_language };
+    
+    let transcript = crate::autocoder::run_offline_autocoder(
+        &req.specification,
+        target_lang,
+        state.os_state.clone(),
+        &vectorizer,
+    ).await;
+
+    Json(json!({
+        "ok": true,
+        "transcript": transcript,
+    }))
+}
+
+
 
