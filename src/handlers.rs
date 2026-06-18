@@ -1600,5 +1600,73 @@ pub async fn run_autocoder_endpoint(
     }))
 }
 
+// ===========================================================================
+// DUET PARALLEL L1/L2 STREAMING & NANO-SIREN ADDITIONS (v5.0)
+// ===========================================================================
+
+#[derive(Deserialize)]
+pub struct DuetRequest {
+    pub specification: String,
+    pub target_language: String,
+}
+
+/// Run twin communicating 1.2B models working simultaneously in parallel through L1/L2 Ring Buffers (`POST /v1/duet/run`).
+pub async fn run_duet_synergy_endpoint(
+    State(state): State<AppState>,
+    Json(req): Json<DuetRequest>,
+) -> impl IntoResponse {
+    let target_lang = if req.target_language.is_empty() { "python" } else { &req.target_language };
+    
+    let transcript = crate::duet::execute_duet_synergy(
+        &req.specification,
+        target_lang,
+        state.os_state.siren_cap.clone(),
+        state.os_state.ring_buffer.clone(),
+    ).await;
+
+    Json(json!({
+        "ok": true,
+        "transcript": transcript,
+    }))
+}
+
+#[derive(Deserialize)]
+pub struct SirenRequest {
+    pub thought_a: String,
+    pub thought_b: String,
+}
+
+/// Measure exact periodic analytical SIREN phase synchronization (`POST /v1/siren/sync`).
+pub async fn measure_siren_sync_endpoint(
+    State(state): State<AppState>,
+    Json(req): Json<SirenRequest>,
+) -> impl IntoResponse {
+    let mut cap = state.os_state.siren_cap.lock().await;
+    let (sync, phase_vec) = crate::siren::calculate_siren_resonance(&req.thought_a, &req.thought_b, &mut cap);
+    
+    Json(json!({
+        "ok": true,
+        "analytical_synchronization": sync,
+        "siren_phase_state": phase_vec,
+    }))
+}
+
+/// Completely flush and wipe simulated CPU L1/L2 Ring Buffers (`POST /v1/duet/flush`).
+pub async fn flush_l1l2_ringbuffer_endpoint(
+    State(state): State<AppState>,
+) -> impl IntoResponse {
+    let mut rb = state.os_state.ring_buffer.lock().await;
+    let bytes_wiped = rb.write_count;
+    rb.flush_clean();
+    
+    Json(json!({
+        "ok": true,
+        "message": format!("Flushed {} active historical bytes from simulated CPU L1/L2 Ring Buffer.", bytes_wiped),
+        "ring_buffer_tail": rb.tail,
+        "ring_buffer_head": rb.head,
+    }))
+}
+
+
 
 

@@ -1,14 +1,15 @@
-//! # Aether Engine v3.0 — AetherOS Ultimate Masterpiece (Offline 1.2B Paradigm Edition).
+//! # Aether Engine v3.0 — AetherOS Ultimate Masterpiece (Duet Nano-SIREN God-Mode Edition).
 //!
 //! A Rust HTTP service and Unified Cognitive Operating System that multiplies small GGUF model
-//! capacity 10x+ via **twelve interconnected innovations**, an **Active OS Execution Kernel**,
-//! and an **Offline 1.2B Code Hyper-Reactor**.
+//! capacity 10x+ via **fourteen interconnected innovations**, an **Active OS Execution Kernel**,
+//! and a **Zero-Storage Duet Twin 1.2B Parallel Cluster**.
 //!
-//! # Epoch-Defining Offline 1.2B Synergy
+//! # Revolutionary God-Mode Synergy ("The Real Deal")
 //!
-//! - **Aether Autocoder (`autocoder.rs`)**: Turns any small 1–2B GGUF model specialized in code
-//!   into an autonomous offline powerhouse that outperforms 70B+ flagships via 135 tok/sec execution speed,
-//!   instant MCTS/ATD self-healing, and 24/7 autopoietic evolution.
+//! - **Nano-SIREN Recurrent Hat (`siren.rs`)**: Projects continuous latent reasoning trajectories
+//!   through periodic sinusoidal activation networks (`sin(w*W*x + b)`) for exact analytical derivatives.
+//! - **Duet Parallel L1/L2 Cache Streaming (`duet.rs`)**: Two 1.2B models (Alpha Generator vs Beta Verifier)
+//!   work simultaneously in parallel, streaming thoughts through an L1/L2 Ring Buffer with zero mid-state garbage storage.
 
 mod agent;
 mod atd;
@@ -19,12 +20,14 @@ mod compress;
 mod dashboard;
 mod decompose;
 mod desktop;
+mod duet;
 mod genesis;
 mod graph;
 mod handlers;
 mod hcm;
 mod hypnos;
 mod mcts;
+mod siren;
 mod tfidf;
 mod tools;
 
@@ -34,7 +37,6 @@ use std::sync::Arc;
 use tokio::sync::Mutex;
 use tower_http::cors::CorsLayer;
 
-/// Global statistics tracked across all requests.
 pub struct Stats {
     pub requests: u64,
     pub cache_hits: u64,
@@ -52,7 +54,6 @@ pub struct Stats {
     pub atd_rejected: u64,
 }
 
-/// Shared application state, cloned into every handler via Axum's State extractor.
 #[derive(Clone)]
 pub struct AppState {
     pub graph: Arc<Mutex<graph::MemoryGraph>>,
@@ -101,7 +102,6 @@ async fn main() {
             .expect("reqwest client"),
     };
 
-    // Spawn Genesis 24/7 Background Self-Evolution Loop
     tokio::spawn(crate::genesis::start_genesis_loop(state.clone()));
 
     let app = Router::new()
@@ -136,6 +136,10 @@ async fn main() {
         .route("/v1/mcts/speculate", post(handlers::mcts_speculation_tree))
         // --- Holy Grail Offline 1.2B Additions (v4.1) ---
         .route("/v1/autocoder/run", post(handlers::run_autocoder_endpoint))
+        // --- Science-Fiction Twin Duet & Nano-SIREN God-Mode Additions (v5.0 Ultimate) ---
+        .route("/v1/duet/run", post(handlers::run_duet_synergy_endpoint))
+        .route("/v1/siren/sync", post(handlers::measure_siren_sync_endpoint))
+        .route("/v1/duet/flush", post(handlers::flush_l1l2_ringbuffer_endpoint))
         .layer(CorsLayer::very_permissive())
         .with_state(state);
 
@@ -144,11 +148,10 @@ async fn main() {
         .expect("bind 3004");
 
     eprintln!(
-        "⚡ [Aether Engine HermesOS v4.1 Masterpiece] Offline 1.2B Code Accelerator listening on :{PORT} (backend: {backend})\n\
-         🧠 20 Divine OS Tools enabled (Autonomous Git, Code Analyzer, Isolated Sandbox Evaluator)\n\
-         🌐 Live Cyberpunk Web Desktop accessible at http://localhost:{PORT}/desktop\n\
-         🚀 Triple Reactor online: ATD Contestation + CLT Recurrent Space + MCTS Speculative Trees\n\
-         🌌 Chronos Genesis Reactor permanently active & Offline 1.2B Autocoder synergy fully engaged"
+        "⚡ [Aether Engine HermesOS v5.0 Ultimate God-Mode] Epoch Kernel listening on :{PORT} (backend: {backend})\n\
+         🧠 24 Divine OS Tools enabled (Siren Recurrent Hat, Zero-Storage L1/L2 Buffer Dual-Inference)\n\
+         🌐 Live Cyberpunk OS Web Desktop accessible at http://localhost:{PORT}/desktop\n\
+         🚀 Infinite Power online: Twin 1.2B Duet Concurrency + Recurrent Sinusoidal Activation Waves"
     );
 
     axum::serve(listener, app).await.expect("server stopped");

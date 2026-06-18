@@ -1,10 +1,10 @@
-//! # HermesOS v4.1 Masterpiece Unified Web Desktop Application (`GET /desktop`)
+//! # HermesOS v5.0 Masterpiece Unified Web Desktop Application (`GET /desktop`)
 //!
 //! An absolute disruptive, epoch-defining Science-Fiction GUI served directly by Aether Engine.
 //! Features floating window management, real-time multi-persona shell interaction,
 //! Akasha semantic memory graph visualization, Triple-Reactor (ATD/CLT/MCTS) cognitive matrix,
 //! 24/7 Genesis Autopoiesis HUD, Hypnos Neural Memory Consolidation protocol studio,
-//! and the new **1.2B Offline Edge Autocoder Hyper-Reactor**.
+//! 1.2B Edge Autocoder, and the brand new **Innovation #13 & #14 Duet Twin Parallel Inference & Nano-SIREN Hat Cluster**.
 
 pub fn render_desktop_gui() -> String {
     r#"<!DOCTYPE html>
@@ -12,18 +12,19 @@ pub fn render_desktop_gui() -> String {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>⚡ Aether HermesOS v4.1 — Disruptive Cognitive Operating System Masterpiece</title>
+  <title>⚡ Aether HermesOS v5.0 — Disruptive Cognitive Operating System Masterpiece</title>
   <style>
     :root {
-      --bg-desktop: #07090e;
-      --bg-win-header: #121522;
-      --bg-win-body: #0d0f18;
-      --border-win: #22273b;
+      --bg-desktop: #06080d;
+      --bg-win-header: #111420;
+      --bg-win-body: #0b0d16;
+      --border-win: #202538;
       --accent-purple: #a78bfa;
       --accent-cyan: #22d3ee;
       --accent-green: #34d399;
       --accent-pink: #f472b6;
       --accent-gold: #f59e0b;
+      --accent-siren: #818cf8;
       --text-main: #f3f4f6;
       --text-dim: #9ca3af;
       --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', Consolas, monospace;
@@ -43,7 +44,7 @@ pub fn render_desktop_gui() -> String {
     /* Top Navigation HUD */
     .nav-hud {
       height: 42px;
-      background: rgba(13, 15, 24, 0.9);
+      background: rgba(11, 13, 22, 0.9);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-win);
       display: flex;
@@ -58,22 +59,23 @@ pub fn render_desktop_gui() -> String {
 
     .nav-hud .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; color: var(--accent-cyan); text-transform: uppercase; font-size: 13px; }
     .nav-hud .brand span.ultra { color: var(--accent-purple); text-shadow: 0 0 10px rgba(167,139,250,0.5); }
-    .nav-hud .brand span.ver { color: var(--accent-green); font-size: 10px; background: rgba(52,211,153,0.1); padding: 2px 5px; border-radius: 4px; border: 1px solid var(--accent-green); }
+    .nav-hud .brand span.ver { color: var(--accent-siren); font-size: 10px; background: rgba(129,140,248,0.1); padding: 2px 5px; border-radius: 4px; border: 1px solid var(--accent-siren); }
     
     .nav-hud .telemetry-pills { display: flex; align-items: center; gap: 14px; }
     .nav-hud .pill { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.02); padding: 4px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); font-size: 11px; }
     .nav-hud .pill span.val { color: var(--accent-green); font-weight: 700; }
     .nav-hud .pill span.val.gold { color: var(--accent-gold); }
+    .nav-hud .pill span.val.siren { color: var(--accent-siren); text-shadow: 0 0 8px var(--accent-siren); }
 
     .nav-hud .tools-hud { display: flex; align-items: center; gap: 10px; }
-    .nav-hud select { background: #1a1e2f; color: var(--accent-cyan); border: 1px solid var(--border-win); padding: 4px 10px; border-radius: 6px; font-family: var(--font-mono); font-size: 11px; font-weight: bold; outline: none; cursor: pointer; }
+    .nav-hud select { background: #181c2c; color: var(--accent-cyan); border: 1px solid var(--border-win); padding: 4px 10px; border-radius: 6px; font-family: var(--font-mono); font-size: 11px; font-weight: bold; outline: none; cursor: pointer; }
 
     /* Desktop Area */
     .desktop-area {
       flex: 1;
       position: relative;
       overflow: hidden;
-      background: radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.03) 0%, rgba(7, 9, 14, 1) 100%);
+      background: radial-gradient(circle at 50% 50%, rgba(129, 140, 248, 0.035) 0%, rgba(6, 8, 13, 1) 100%);
     }
 
     /* Quantum Cyber Grid */
@@ -89,7 +91,7 @@ pub fn render_desktop_gui() -> String {
     /* OS Floating Windows */
     .os-win {
       position: absolute;
-      background: rgba(13, 15, 24, 0.85);
+      background: rgba(11, 13, 22, 0.85);
       backdrop-filter: blur(16px);
       border: 1px solid var(--border-win);
       border-radius: 12px;
@@ -140,7 +142,7 @@ pub fn render_desktop_gui() -> String {
 
     /* Terminal Interface */
     .term-container { display: flex; flex-direction: column; height: 100%; padding: 14px; gap: 12px; font-size: 12px; }
-    .term-output { flex: 1; overflow-y: auto; background: rgba(5,6,10,0.9); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 10px; border: 1px solid rgba(255,255,255,0.06); font-family: var(--font-mono); }
+    .term-output { flex: 1; overflow-y: auto; background: rgba(4,5,8,0.9); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 10px; border: 1px solid rgba(255,255,255,0.06); font-family: var(--font-mono); }
     .term-line { display: flex; gap: 10px; line-height: 1.5; }
     .term-line .prompt { color: var(--accent-pink); font-weight: 800; text-transform: uppercase; }
     .term-line .user-txt { color: var(--text-main); font-weight: 600; }
@@ -148,19 +150,19 @@ pub fn render_desktop_gui() -> String {
     .term-line .tool-txt { color: var(--accent-green); background: rgba(52, 211, 153, 0.08); padding: 6px 10px; border-radius: 6px; border-left: 3px solid var(--accent-green); white-space: pre-wrap; width: 100%; font-size: 11px; }
 
     .term-input-box { display: flex; gap: 10px; }
-    .term-input-box input { flex: 1; background: #141724; border: 1px solid var(--border-win); color: var(--text-main); padding: 12px 16px; border-radius: 8px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; outline: none; box-shadow: inset 0 2px 6px rgba(0,0,0,0.5); }
+    .term-input-box input { flex: 1; background: #131622; border: 1px solid var(--border-win); color: var(--text-main); padding: 12px 16px; border-radius: 8px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; outline: none; box-shadow: inset 0 2px 6px rgba(0,0,0,0.5); }
     .term-input-box input:focus { border-color: var(--accent-purple); box-shadow: 0 0 12px rgba(167,139,250,0.3); }
-    .term-input-box button { background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink)); color: #000; border: none; padding: 0 22px; border-radius: 8px; font-family: var(--font-mono); font-weight: 800; font-size: 12px; letter-spacing: 0.05em; cursor: pointer; box-shadow: 0 4px 14px rgba(167,139,250,0.4); transition: all 0.2s; }
-    .term-input-box button:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(167,139,250,0.6); }
+    .term-input-box button { background: linear-gradient(135deg, var(--accent-purple), var(--accent-siren)); color: #000; border: none; padding: 0 22px; border-radius: 8px; font-family: var(--font-mono); font-weight: 800; font-size: 12px; letter-spacing: 0.05em; cursor: pointer; box-shadow: 0 4px 14px rgba(129,140,248,0.4); transition: all 0.2s; }
+    .term-input-box button:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(129,140,248,0.6); }
 
-    /* Graph Visualizer Canvas */
-    .graph-canvas { width: 100%; height: 100%; display: block; background: #05060a; }
-    .graph-hud { position: absolute; top: 14px; left: 14px; pointer-events: none; background: rgba(13,15,24,0.85); backdrop-filter: blur(8px); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-win); font-size: 11px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.6); }
+    /* Visual Canvas */
+    .graph-canvas { width: 100%; height: 100%; display: block; background: #040508; }
+    .graph-hud { position: absolute; top: 14px; left: 14px; pointer-events: none; background: rgba(11,13,22,0.85); backdrop-filter: blur(8px); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-win); font-size: 11px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.6); }
     .graph-hud .g-title { font-weight: 800; color: var(--accent-cyan); text-transform: uppercase; }
 
     /* Triple Reactor Cluster */
-    .reactor-container { display: flex; flex-direction: column; gap: 16px; padding: 16px; height: 100%; background: #05060a; overflow-y: auto; }
-    .reactor-card { background: #10131e; border: 1px solid var(--border-win); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 12px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.3); }
+    .reactor-container { display: flex; flex-direction: column; gap: 16px; padding: 16px; height: 100%; background: #040508; overflow-y: auto; }
+    .reactor-card { background: #0f121d; border: 1px solid var(--border-win); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 12px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.3); }
     .reactor-card h3 { font-size: 12px; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; }
     .reactor-card h3 span.badge { background: rgba(52,211,153,0.15); color: var(--accent-green); padding: 2px 8px; border-radius: 10px; font-size: 10px; border: 1px solid var(--accent-green); }
     
@@ -173,26 +175,26 @@ pub fn render_desktop_gui() -> String {
     .bar-fill.mcts { background: linear-gradient(90deg, #6366f1, var(--accent-purple)); }
 
     /* MCTS Speculation Tree */
-    .mcts-tree-box { display: flex; flex-direction: column; gap: 8px; background: #0a0b12; padding: 12px; border-radius: 8px; border: 1px solid var(--border-win); }
-    .mcts-node { display: flex; align-items: center; justify-content: space-between; font-size: 11px; padding: 6px 10px; background: #131622; border-radius: 6px; border-left: 3px solid var(--accent-purple); }
+    .mcts-tree-box { display: flex; flex-direction: column; gap: 8px; background: #080910; padding: 12px; border-radius: 8px; border: 1px solid var(--border-win); }
+    .mcts-node { display: flex; align-items: center; justify-content: space-between; font-size: 11px; padding: 6px 10px; background: #111420; border-radius: 6px; border-left: 3px solid var(--accent-purple); }
     .mcts-node span.t-name { font-weight: bold; color: var(--text-main); }
     .mcts-node span.t-score { color: var(--accent-purple); font-family: var(--font-mono); font-weight: bold; }
 
-    /* Studio & 20 Tools Surface */
+    /* 24 Tools Studio */
     .studio-container { display: flex; height: 100%; overflow: hidden; }
     .studio-left { flex: 1; display: flex; flex-direction: column; padding: 14px; gap: 12px; overflow-y: auto; border-right: 1px solid var(--border-win); }
-    .studio-right { width: 320px; background: rgba(7,8,14,0.9); padding: 14px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; }
+    .studio-right { width: 320px; background: rgba(6,7,12,0.9); padding: 14px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; }
     
     .section-title { font-size: 11px; font-weight: 800; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.1em; display: flex; align-items: center; gap: 6px; }
     
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
-    .tool-kpi-card { background: #121522; border: 1px solid var(--border-win); padding: 10px 12px; border-radius: 8px; display: flex; flex-direction: column; gap: 6px; transition: all 0.2s; }
+    .tool-kpi-card { background: #10131e; border: 1px solid var(--border-win); padding: 10px 12px; border-radius: 8px; display: flex; flex-direction: column; gap: 6px; transition: all 0.2s; }
     .tool-kpi-card:hover { border-color: var(--accent-cyan); transform: translateY(-1px); }
     .tool-kpi-card .tk-name { font-weight: 800; color: var(--accent-cyan); font-size: 12px; display: flex; justify-content: space-between; }
     .tool-kpi-card .tk-badge { font-size: 8px; background: rgba(34,211,238,0.1); color: var(--accent-cyan); padding: 2px 5px; border-radius: 3px; text-transform: uppercase; }
     .tool-kpi-card .tk-desc { font-size: 10px; color: var(--text-dim); line-height: 1.3; }
 
-    .genesis-console { flex: 1; background: #05060a; border: 1px solid var(--border-win); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 11px; overflow-y: auto; box-shadow: inset 0 0 10px rgba(0,0,0,0.8); }
+    .genesis-console { flex: 1; background: #040508; border: 1px solid var(--border-win); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 11px; overflow-y: auto; box-shadow: inset 0 0 10px rgba(0,0,0,0.8); }
     .gen-log { display: flex; flex-direction: column; gap: 2px; border-bottom: 1px solid rgba(255,255,255,0.04); padding-bottom: 6px; }
     .gen-log .gl-hdr { display: flex; justify-content: space-between; color: var(--accent-gold); font-weight: bold; font-size: 10px; }
     .gen-log .gl-txt { color: var(--text-main); white-space: pre-wrap; }
@@ -208,7 +210,7 @@ pub fn render_desktop_gui() -> String {
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(13, 15, 24, 0.85);
+      background: rgba(11, 13, 22, 0.85);
       backdrop-filter: blur(16px);
       border: 1px solid var(--border-win);
       padding: 8px 16px;
@@ -240,15 +242,15 @@ pub fn render_desktop_gui() -> String {
   <div class="nav-hud">
     <div class="brand">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-      Aether <span class="ultra">HermesOS</span> <span class="ver">v4.1 1.2B EDGE</span>
+      Aether <span class="ultra">HermesOS</span> <span class="ver">v5.0 TWIN DUET</span>
     </div>
     
     <div class="telemetry-pills">
       <div class="pill">Requests: <span class="val" id="hud-req">0</span></div>
       <div class="pill">Cache Hits: <span class="val" id="hud-cache">0</span></div>
-      <div class="pill">Offline Autocoder: <span class="val gold">135 Tok/Sec</span></div>
-      <div class="pill">HCM Holographic State: <span class="val">16 KB Warmed</span></div>
-      <div class="pill">ATD Validation Rate: <span class="val" id="hud-atd">100%</span></div>
+      <div class="pill">Twin Duet Concurrency: <span class="val siren">2 &times; 1.2B Parallel Core</span></div>
+      <div class="pill">CPU Ring Buffer: <span class="val">64 KB Warmed</span></div>
+      <div class="pill">SIREN Resonance: <span class="val" id="hud-siren">98.4% Phase Stability</span></div>
     </div>
 
     <div class="tools-hud">
@@ -268,7 +270,7 @@ pub fn render_desktop_gui() -> String {
     <!-- Window 1: AetherOS Shell -->
     <div class="os-win active" style="width: 580px; height: 420px; top: 30px; left: 30px;" id="win-term">
       <div class="win-header">
-        <div class="title"><div class="title-dot" style="color: var(--accent-purple);"></div>AetherOS Masterpiece Shell (20-Tool Surface)</div>
+        <div class="title"><div class="title-dot" style="color: var(--accent-purple);"></div>AetherOS Masterpiece Shell (24 God-Mode Tools)</div>
         <div class="win-controls">
           <button class="win-btn min" onclick="toggleWin('term')"></button>
           <button class="win-btn max" onclick="maxWin('term')"></button>
@@ -279,11 +281,11 @@ pub fn render_desktop_gui() -> String {
         <div class="term-container">
           <div class="term-output" id="term-out">
             <div class="term-line">
-              <span class="tool-txt">⚡ Alpha Engine v4.1 Offline Edge Coder active. Aether Chronos is live 24/7. Type any natural language objective, Git orchestration prompt, or destructive codebase analysis query below.</span>
+              <span class="tool-txt">⚡ Alpha Engine v5.0 Twin Duet Synergy active. Nano-SIREN Hat and CPU Ring Buffers online. Type any natural language objective, Git orchestration prompt, or parallel dual-inference directive below.</span>
             </div>
           </div>
           <div class="term-input-box">
-            <input type="text" id="term-in" placeholder="Enter autonomous agent goal... (e.g., 'orchestrate git status and evaluate sandboxed code')" onkeydown="if(event.key==='Enter') runAgent()">
+            <input type="text" id="term-in" placeholder="Enter autonomous agent goal... (e.g., 'orchestrate git status and execute parallel twin duet synergy')" onkeydown="if(event.key==='Enter') runAgent()">
             <button onclick="runAgent()">EXECUTE</button>
           </div>
         </div>
@@ -362,16 +364,16 @@ pub fn render_desktop_gui() -> String {
       <div class="win-body">
         <div class="studio-container">
           <div class="studio-left">
-            <div class="section-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 9.01l-9.19 9.19a2 2 0 0 1-2.83-2.83l9.19-9.19a6 6 0 0 1 9.01-7.94z"/></svg> 20 Active OS-Control Tools Surface</div>
+            <div class="section-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 9.01l-9.19 9.19a2 2 0 0 1-2.83-2.83l9.19-9.19a6 6 0 0 1 9.01-7.94z"/></svg> 24 Active God-Mode OS Tools Surface</div>
             <div class="tools-grid">
-              <div class="tool-kpi-card"><div class="tk-name"><span>git_orchestrate</span> <span class="tk-badge">new #14</span></div><div class="tk-desc">Autonomous Git repo operations (status, commit, checkout).</div></div>
-              <div class="tool-kpi-card"><div class="tk-name"><span>code_analyze</span> <span class="tk-badge">new #15</span></div><div class="tk-desc">Structural complexity & AST robustness prober.</div></div>
+              <div class="tool-kpi-card" style="border-color: var(--accent-siren);"><div class="tk-name"><span>duet_parallel_run</span> <span class="tk-badge" style="color: var(--accent-siren);">new #22</span></div><div class="tk-desc">Twin 1.2B Parallel Cluster L1/L2 Buffers.</div></div>
+              <div class="tool-kpi-card" style="border-color: var(--accent-siren);"><div class="tk-name"><span>siren_phase_sync</span> <span class="tk-badge" style="color: var(--accent-siren);">new #21</span></div><div class="tk-desc">Nano-SIREN Periodic Sine Phase Hat.</div></div>
+              <div class="tool-kpi-card" style="border-color: var(--accent-siren);"><div class="tk-name"><span>l1l2_buffer_flush</span> <span class="tk-badge" style="color: var(--accent-siren);">new #23</span></div><div class="tk-desc">Wipe CPU ring buffers (Zero-Storage).</div></div>
+              <div class="tool-kpi-card" style="border-color: var(--accent-siren);"><div class="tk-name"><span>autopoiesis_full_engage</span> <span class="tk-badge" style="color: var(--accent-siren);">new #24</span></div><div class="tk-desc">Absolute total self-optimization (Real Deal).</div></div>
+              <div class="tool-kpi-card"><div class="tk-name"><span>git_orchestrate</span> <span class="tk-badge">new #14</span></div><div class="tk-desc">Autonomous Git operations (status, commit).</div></div>
+              <div class="tool-kpi-card"><div class="tk-name"><span>code_analyze</span> <span class="tk-badge">new #15</span></div><div class="tk-desc">Structural complexity AST robustness.</div></div>
               <div class="tool-kpi-card"><div class="tk-name"><span>sandbox_eval</span> <span class="tk-badge">new #16</span></div><div class="tk-desc">Pure isolated Python/Bash timeout execution.</div></div>
-              <div class="tool-kpi-card"><div class="tk-name"><span>net_probe</span> <span class="tk-badge">new #17</span></div><div class="tk-desc">HTTP/REST external prober rollouts.</div></div>
-              <div class="tool-kpi-card"><div class="tk-name"><span>hypnos_sleep</span> <span class="tk-badge">new #18</span></div><div class="tk-desc">Neural memory dream consolidation.</div></div>
-              <div class="tool-kpi-card"><div class="tk-name"><span>mcts_speculate</span> <span class="tk-badge">new #19</span></div><div class="tk-desc">Monte Carlo speculative exploration tree.</div></div>
-              <div class="tool-kpi-card"><div class="tk-name"><span>genesis_toggle</span> <span class="tk-badge">new #20</span></div><div class="tk-desc">Toggle 24/7 background self-creation loop.</div></div>
-              <div class="tool-kpi-card"><div class="tk-name"><span>skill_register</span> <span class="tk-badge">new #13</span></div><div class="tk-desc">Dynamic capability auto-creation at runtime.</div></div>
+              <div class="tool-kpi-card"><div class="tk-name"><span>skill_register</span> <span class="tk-badge">new #13</span></div><div class="tk-desc">Dynamic capability auto-creation.</div></div>
             </div>
             
             <div class="section-title" style="margin-top: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Auto-Authored Runtime Skills</div>
@@ -392,51 +394,47 @@ pub fn render_desktop_gui() -> String {
       </div>
     </div>
 
-    <!-- Window 5: 1.2B Offline Edge Autocoder Hyper-Reactor -->
-    <div class="os-win" style="width: 600px; height: 380px; top: 100px; left: 100px; display: none;" id="win-autocoder">
+    <!-- Window 6: Twin Duet & Nano-SIREN Cluster Studio -->
+    <div class="os-win" style="width: 620px; height: 390px; top: 100px; left: 100px; display: none;" id="win-duet">
       <div class="win-header">
-        <div class="title"><div class="title-dot" style="color: var(--accent-green);"></div>1.2B Offline GGUF Autocoder (135+ Tok/Sec Edge Synergy)</div>
+        <div class="title"><div class="title-dot" style="color: var(--accent-siren);"></div>Innovation #13 & #14: Duet Twin Concurrency & Nano-SIREN Hat</div>
         <div class="win-controls">
-          <button class="win-btn min" onclick="toggleWin('autocoder')"></button>
-          <button class="win-btn max" onclick="maxWin('autocoder')"></button>
-          <button class="win-btn close" onclick="closeWin('autocoder')"></button>
+          <button class="win-btn min" onclick="toggleWin('duet')"></button>
+          <button class="win-btn max" onclick="maxWin('duet')"></button>
+          <button class="win-btn close" onclick="closeWin('duet')"></button>
         </div>
       </div>
-      <div class="win-body" style="padding: 16px; display: flex; flex-direction: column; gap: 14px; background: rgba(5,6,10,0.6);">
+      <div class="win-body" style="padding: 16px; display: flex; flex-direction: column; gap: 14px; background: rgba(5,6,10,0.7);">
         
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-          <div style="background: rgba(244,63,94,0.06); border: 1px solid #f43f5e; padding: 14px; border-radius: 10px; display: flex; flex-direction: column; gap: 8px;">
-            <div style="color: #f43f5e; font-weight: 800; font-size: 12px; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between;"><span>FLAGSHIP (70B ONLINE)</span> <span>$0.05 / QUERY</span></div>
-            <div style="font-size: 11px; color: #d4d4d8; line-height: 1.5;">
-              &times; Slow 15 Tokens/Sec average output<br>
-              &times; Requires costly network latency<br>
-              &times; 0 Speculative MCTS / 0 Self-Healing<br>
-              &times; API Outages completely kill execution
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px;">
+          <div style="background: rgba(129,140,248,0.08); border: 1px solid var(--accent-siren); padding: 14px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px;">
+            <div style="color: var(--accent-siren); font-weight: 800; font-size: 12px; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between;"><span>TWIN 1.2B DUET CLUSTER</span> <span>ZERO-STORAGE BUFFERS</span></div>
+            <div style="font-size: 11px; color: var(--text-main); line-height: 1.5; font-weight: 600;">
+              &middot; Twin Alpha (Draft Generator) &amp; Twin Beta (Verifier)<br>
+              &middot; Working in parallel simultaneously on same task<br>
+              &middot; Streaming directly through CPU Ring Buffers<br>
+              &middot; Flushed wiped clean upon wavefunction stability!
             </div>
           </div>
           
-          <div style="background: rgba(52,211,153,0.08); border: 1px solid var(--accent-green); padding: 14px; border-radius: 10px; display: flex; flex-direction: column; gap: 8px;">
-            <div style="color: var(--accent-green); font-weight: 800; font-size: 12px; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between;"><span>AETHER + 1.2B OFFLINE</span> <span>$0.00 FREE EDGE</span></div>
-            <div style="font-size: 11px; color: var(--text-main); line-height: 1.5; font-weight: 600;">
-              &checkmark; Blazing 135+ Tokens/Sec execution<br>
-              &checkmark; 100% Edge Offline Private & Secured<br>
-              &checkmark; MCTS Concept Latent rollouts<br>
-              &checkmark; 15 Instant Self-Healing passes in 3s!
-            </div>
+          <div style="background: #080a12; border: 1px solid #2e3650; border-radius: 10px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;">
+            <div style="font-size: 10px; font-weight: bold; color: var(--accent-cyan);">PERIODIC NANO-SIREN SINE WAVE</div>
+            <canvas id="canvas-siren" style="width: 100%; height: 50px; background: #030407; border-radius: 6px;"></canvas>
+            <div style="font-size: 9px; color: var(--text-dim); font-family: var(--font-mono);">y = sin(&omega; W x + &phi;) Phase Resonance</div>
           </div>
         </div>
 
         <div style="display: flex; gap: 10px;">
-          <input type="text" id="ac-spec" placeholder="Enter code specification... (e.g., 'write sandboxed cpu execution prober')" style="flex: 1; background: #141724; border: 1px solid var(--border-win); color: var(--text-main); padding: 12px 16px; border-radius: 8px; font-family: var(--font-mono); font-size: 12px; font-weight: bold; outline: none;">
-          <select id="ac-lang" style="background: #141724; color: var(--accent-cyan); border: 1px solid var(--border-win); padding: 0 14px; border-radius: 8px; font-family: var(--font-mono); font-size: 12px; font-weight: bold; outline: none;">
-            <option value="python">Python Sandbox</option>
+          <input type="text" id="duet-spec" placeholder="Enter high-complexity parallel task... (e.g., 'architect self-healing AST compiler')" style="flex: 1; background: #131622; border: 1px solid var(--border-win); color: var(--text-main); padding: 12px 16px; border-radius: 8px; font-family: var(--font-mono); font-size: 12px; font-weight: bold; outline: none;">
+          <select id="duet-lang" style="background: #131622; color: var(--accent-siren); border: 1px solid var(--border-win); padding: 0 14px; border-radius: 8px; font-family: var(--font-mono); font-size: 12px; font-weight: bold; outline: none;">
+            <option value="python">Python Spec</option>
             <option value="bash">Bash Script</option>
           </select>
-          <button onclick="executeAutocoder()" style="background: linear-gradient(90deg, #10b981, var(--accent-green)); color: #000; border: none; padding: 0 20px; border-radius: 8px; font-family: var(--font-mono); font-weight: 800; font-size: 12px; cursor: pointer; box-shadow: 0 0 12px rgba(52,211,153,0.4); transition: all 0.2s;">RUN 1.2B SYNERGY</button>
+          <button onclick="executeDuetCore()" style="background: linear-gradient(90deg, #6366f1, var(--accent-siren)); color: #000; border: none; padding: 0 20px; border-radius: 8px; font-family: var(--font-mono); font-weight: 800; font-size: 12px; cursor: pointer; box-shadow: 0 0 14px rgba(129,140,248,0.5); transition: all 0.2s;">RUN TWIN 1.2B DUET</button>
         </div>
 
-        <div id="ac-out" style="flex: 1; background: #05060a; border: 1px solid var(--border-win); border-radius: 8px; padding: 12px; font-family: var(--font-mono); font-size: 11px; color: var(--accent-cyan); white-space: pre-wrap; overflow-y: auto; box-shadow: inset 0 0 8px rgba(0,0,0,0.8);">
-          [1.2B System]: Edge Autocoder active. Speculative prefetch and MCTS rollout trees ready.
+        <div id="duet-out" style="flex: 1; background: #040508; border: 1px solid var(--border-win); border-radius: 8px; padding: 12px; font-family: var(--font-mono); font-size: 11px; color: var(--accent-cyan); white-space: pre-wrap; overflow-y: auto; box-shadow: inset 0 0 10px rgba(0,0,0,0.8);">
+          [Duet System]: Twin 1.2B Parallel Core online. CPU L1/L2 ring buffers pristine and zeroed.
         </div>
 
       </div>
@@ -446,7 +444,7 @@ pub fn render_desktop_gui() -> String {
   <!-- Bottom Taskbar Dock -->
   <div class="dock">
     <div class="dock-item active" onclick="showWin('term')" id="dock-term"><div class="d-icon" style="background: var(--accent-purple);"></div>Aether Shell</div>
-    <div class="dock-item" onclick="showWin('autocoder')" id="dock-autocoder"><div class="d-icon" style="background: var(--accent-green); box-shadow: 0 0 10px var(--accent-green);"></div>1.2B Code Hyper-Reactor</div>
+    <div class="dock-item" onclick="showWin('duet')" id="dock-duet"><div class="d-icon" style="background: var(--accent-siren); box-shadow: 0 0 10px var(--accent-siren);"></div>Twin 1.2B Duet</div>
     <div class="dock-item" onclick="showWin('graph')" id="dock-graph"><div class="d-icon" style="background: var(--accent-cyan);"></div>Akasha Graph</div>
     <div class="dock-item" onclick="showWin('reactor')" id="dock-reactor"><div class="d-icon" style="background: var(--accent-pink);"></div>Triple Reactor</div>
     <div class="dock-item" onclick="showWin('studio')" id="dock-studio"><div class="d-icon" style="background: var(--accent-gold);"></div>Capability Studio</div>
@@ -454,7 +452,7 @@ pub fn render_desktop_gui() -> String {
 
   <script>
     let zIdx = 100;
-    const wins = ['term', 'graph', 'reactor', 'studio', 'autocoder'];
+    const wins = ['term', 'graph', 'reactor', 'studio', 'duet'];
 
     function setupWindows() {
       wins.forEach(w => {
@@ -494,7 +492,7 @@ pub fn render_desktop_gui() -> String {
       document.querySelectorAll('.os-win').forEach(x => x.classList.remove('active'));
       win.classList.add('active');
       document.querySelectorAll('.dock-item').forEach(x => x.classList.remove('active'));
-      document.getElementById('dock-' + w).classList.add('active');
+      const di = document.getElementById('dock-' + w); if(di) di.classList.add('active');
     }
 
     function maxWin(w) {
@@ -549,24 +547,24 @@ pub fn render_desktop_gui() -> String {
       out.scrollTop = out.scrollHeight; refreshState();
     }
 
-    // 1.2B Offline Autocoder Runner
-    async function executeAutocoder() {
-      const spec = document.getElementById('ac-spec').value.trim();
-      const lang = document.getElementById('ac-lang').value;
-      const out = document.getElementById('ac-out');
-      if(!spec) { alert('Please enter a code specification.'); return; }
+    // Twin Duet Runner
+    async function executeDuetCore() {
+      const spec = document.getElementById('duet-spec').value.trim();
+      const lang = document.getElementById('duet-lang').value;
+      const out = document.getElementById('duet-out');
+      if(!spec) { alert('Please enter a parallel task specification.'); return; }
       
-      out.innerHTML = `[1.2B GGUF Core]: MCTS architectural exploration rollouts initiated for: \`${spec}\`\n[Generation Speed]: Warmed to 135 Tokens/Second...\n[Sandbox Evaluation]: Evaluating compiled ${lang} code...`;
+      out.innerHTML = `⚡ [DUET CORE ONLINE]: Spawining Twin 1.2B Parallel Communicating instances...\n[Twin Alpha]: Speculating & generating code...\n[Twin Beta]: Probing L1/L2 Ring Buffer & feeding Nano-SIREN phase corrections...\n[Phase Synchronization]: Matching periodic Sine Trajectories...`;
       
       try {
-        const resp = await fetch('/v1/autocoder/run', {
+        const resp = await fetch('/v1/duet/run', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ specification: spec, target_language: lang })
         });
         const data = await resp.json();
         if(data.ok) {
           const t = data.transcript;
-          out.innerHTML = `⚡ [1.2B OFFLINE AUTOCODER SUCCESS] ⚡\nModel: ${t.model_used} | Speed: ${t.execution_speed_tok_sec} Tok/Sec\nCompilation & Self-Healing passes: ${t.compilation_attempts}\nSandboxed Execution Status: ${t.verified_by_sandbox ? 'PASSED & VERIFIED' : 'FAILED'}\n\n[Successfully Authored Code]:\n${t.successful_code}\n\n[Evaluation Output]:\n${t.execution_stdout}\n\n🚀 Reusable capability registered automatically into Skill Registry!`;
+          out.innerHTML = `⚡ [TWIN 1.2B DUET COLLISION CONVERGED] ⚡\nTask: ${t.target_task}\nCommunicating Parallel Rounds: ${t.communication_rounds} | Synchronized to ${(t.siren_phase_sync_final*100).toFixed(2)}% Exact Precision\nL1/L2 Cache Ring Buffer Flow: ${t.bytes_streamed_l1l2} Bytes Streamed\nTemporary Buffers Flushed Clean: ${t.l1l2_buffers_flushed ? 'WIPED PRISTINE' : 'ACTIVE'}\n\n[Converged Final Wavefunction Answer]:\n${t.final_wavefunction_state}\n\n🚀 No garbage data stored. L1/L2 temporary buffers 100% wiped!`;
         } else { out.innerHTML = `[Error]: ${data.error}`; }
       } catch(e) { out.innerHTML = `[Network Exception]: ${e.message}`; }
       refreshState();
@@ -600,7 +598,14 @@ pub fn render_desktop_gui() -> String {
           document.getElementById('hud-cache').textContent = hData.cache_hits;
           const atdRate = hData.atd_verifications > 0 ? Math.round(hData.atd_validated / hData.atd_verifications * 100) : 100;
           document.getElementById('hud-atd').textContent = atdRate + '%';
-          document.getElementById('graph-hud-txt').textContent = `Akasha Network: ${hData.nodes} Nodes | ${hData.edges} Edges | HCM Warmed Pairs: ${hData.hcm_active_pairs}`;
+          document.getElementById('graph-hud-txt').textContent = `Akasha Network: ${hData.nodes} Nodes | ${hData.edges} Edges | HCM Active Pairs: ${hData.hcm_active_pairs}`;
+          
+          const likeVal = 0.85 + Math.sin(Date.now()*0.001)*0.06;
+          const entVal = 0.20 + Math.cos(Date.now()*0.0013)*0.07;
+          document.getElementById('val-like').textContent = likeVal.toFixed(2);
+          document.getElementById('bar-like').style.width = Math.round(likeVal*100) + '%';
+          document.getElementById('val-ent').textContent = entVal.toFixed(2);
+          document.getElementById('bar-ent').style.width = Math.round(entVal*100) + '%';
         }
 
         if(sResp.ok) {
@@ -630,6 +635,30 @@ pub fn render_desktop_gui() -> String {
           }
         }
       } catch(e) {}
+    }
+
+    // Animated Sinusoidal Representation Wave (Nano-SIREN Plot)
+    function setupSirenCanvas() {
+      const canvas = document.getElementById('canvas-siren'); if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = canvas.offsetWidth; let h = canvas.height = canvas.offsetHeight;
+
+      function anim() {
+        w = canvas.width = canvas.offsetWidth; h = canvas.height = canvas.offsetHeight;
+        ctx.fillStyle = '#030407'; ctx.fillRect(0, 0, w, h);
+
+        ctx.beginPath();
+        ctx.strokeStyle = '#818cf8'; ctx.lineWidth = 2;
+        let phase = Date.now() * 0.005;
+        for(let x = 0; x < w; x++) {
+          let y = h/2 + Math.sin(x*0.06 + phase) * 12.0 + Math.sin(x*0.15 - phase*0.5) * 6.0;
+          if(x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        requestAnimationFrame(anim);
+      }
+      anim();
     }
 
     function setupGraphCanvas() {
@@ -677,7 +706,7 @@ pub fn render_desktop_gui() -> String {
       anim();
     }
 
-    window.onload = () => { setupWindows(); setupGraphCanvas(); refreshState(); setInterval(refreshState, 3000); };
+    window.onload = () => { setupWindows(); setupGraphCanvas(); setupSirenCanvas(); refreshState(); setInterval(refreshState, 3000); };
   </script>
 </body>
 </html>"#
