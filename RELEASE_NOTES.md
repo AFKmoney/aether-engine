@@ -21,9 +21,9 @@ The complete historic timeline of how Aether Engine transformed from a proprieta
 - **Aether Chronos (`Genesis Reactor 24/7`)**: Permanent async Tokio background autopoietic loop that continuously reflects on the host and auto-crafts custom runtime tools.
 - **20 Elite OS Tools**: Extended the tool surface to include full autonomous Git orchestration (`git_orchestrate`) and code AST analysis (`code_analyze`).
 
-## 👑 [v3.3 Project Hermes Ultimate] — The Unified Masterpiece Web OS
+## 👑 [v3.3 Project Aether Ultimate] — The Unified Masterpiece Web OS
 - **`GET /desktop` Masterpiece**: Built an unmatched Cyber OS Web Desktop featuring floating window managers, Akasha network visualizers, and Triple-Reactor matrix inspectors.
-- **Multi-Persona Synergy**: Native kernel routing between `Hermes Ultimate Agent`, `Claude Elite Architect`, and `Arena Workspace Engineer`.
+- **Multi-Persona Synergy**: Native kernel routing between `Aether Ultimate Agent`, `Claude Elite Architect`, and `Arena Workspace Engineer`.
 
 ## ⚙️ [v3.0 Alpha Core] — Foundation Middleware
 - Inherited the proprietary 10-stage inference pipeline featuring Holographic Context Memory (HCM), Continuous Latent Trajectory (CLT), and Asymmetric Tensor Dueling (ATD).

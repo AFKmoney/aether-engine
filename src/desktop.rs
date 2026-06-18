@@ -1,4 +1,4 @@
-//! # HermesOS v5.3 Next-Gen Arena-Style GUI (`GET /desktop`) — "The Definitive Arena Agent OS"
+//! # AetherOS v5.3 Next-Gen Arena-Style GUI (`GET /desktop`) — "The Definitive Arena Agent OS"
 //!
 //! An absolute masterpiece, ultra-premium integrated Web Application replicating the exact
 //! incredible design language of the Arena.ai Agent Mode UI, enhanced with AetherOS superpowers.
@@ -11,7 +11,7 @@ pub fn render_desktop_gui() -> String {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>⚡ Aether HermesOS v5.3 — Next-Gen Arena Agent Operating System Workspace</title>
+  <title>⚡ Aether AetherOS v5.3 — Next-Gen Arena Agent Operating System Workspace</title>
   <style>
     :root {
       --bg-workspace: #131622;
@@ -410,7 +410,7 @@ pub fn render_desktop_gui() -> String {
       <div class="persona-selector-box">
         <span>Active Core Persona:</span>
         <select id="active-persona-select">
-          <option value="hermes">⚡ Hermes Ultimate Kernel (Unified VFS & OS Core)</option>
+          <option value="aether">⚡ Aether Ultimate Kernel (Unified VFS & OS Core)</option>
           <option value="claude">🧠 Claude Elite Architect (Deep Synthesis & MCTS Logic)</option>
           <option value="arena">🛠️ Arena Active Engineer (Autonomous Git & Sandboxed Bash)</option>
         </select>
@@ -424,7 +424,7 @@ pub fn render_desktop_gui() -> String {
       <div class="chat-bubble">
         <div class="turn-agent-box">
           <div class="ta-hdr">
-            <span>⚡ AETHER HERMESOS v5.3 FLAGSHIP INTERACTION</span>
+            <span>⚡ AETHER AETHEROS v5.3 FLAGSHIP INTERACTION</span>
             <span class="ta-badge">SYSTEM PRISTINE</span>
           </div>
           <div style="font-size: max(14px, 12px); color: var(--text-main); line-height: max(1.6, 1.4);">
@@ -804,7 +804,7 @@ pub fn render_desktop_gui() -> String {
       out.innerHTML = `
         <div class="chat-bubble">
           <div class="turn-agent-box">
-            <div class="ta-hdr"><span>⚡ AETHER HERMESOS v5.3 SOVEREIGN SESSION</span> <span class="ta-badge">NEW AGENT CHRONOS</span></div>
+            <div class="ta-hdr"><span>⚡ AETHER AETHEROS v5.3 SOVEREIGN SESSION</span> <span class="ta-badge">NEW AGENT CHRONOS</span></div>
             <div style="font-size: 14px; color: var(--text-main); line-height: 1.6;">Fresh sovereign cognitive session active. The 1024-dimensional continuous latent space is fully zeroed and pristine. Ready for directives.</div>
           </div>
         </div>

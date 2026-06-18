@@ -5,7 +5,7 @@ import sys
 
 def display_header():
     print("===========================================================================")
-    print("⚡ AETHER HERMESOS v5.3 — AWESOME AI AGENTS (@e2b) VIRAL X/TWITTER DISPATCH")
+    print("⚡ AETHER AETHEROS v5.3 — AWESOME AI AGENTS (@e2b) VIRAL X/TWITTER DISPATCH")
     print("===========================================================================")
     print("Target Repository: https://github.com/AFKmoney/aether-engine")
     print("Target Landscape: Awesome AI Agents by @e2b (@e2b_dev)\n")

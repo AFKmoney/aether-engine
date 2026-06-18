@@ -1,4 +1,4 @@
-//! # Agent — The autonomous OS-management agentic loop (Hermes Ultimate Super-Agent Edition).
+//! # Agent — The autonomous OS-management agentic loop (Aether Ultimate Super-Agent Edition).
 //!
 //! This module is the **brain** of the autonomous OS layer. It implements
 //! the classical perceive → think → act → observe control loop on top of
@@ -8,7 +8,7 @@
 //! # Ultimate Super-Agent Upgrades ("L'habit fait le moine")
 //!
 //! 1. **Multi-Persona Cognitive Synergy (`AgentPersona`)**: Callers can choose
-//!    between `HermesUnifiedOS`, `ClaudeEliteArchitect`, and `ArenaActiveWorkspace`.
+//!    between `AetherUnifiedOS`, `ClaudeEliteArchitect`, and `ArenaActiveWorkspace`.
 //! 2. **Continuous Latent Trajectory (CLT) Recurrent Thought**: In the `think` step,
 //!    the agent runs an internal recurrent trajectory in concept space, checking
 //!    TF-IDF cosine convergence (`clt::check_convergence`) before collapsing to an action.
@@ -28,11 +28,11 @@ use serde_json::{json, Value};
 // Persona Engine for Multi-Model Synergy
 // ---------------------------------------------------------------------------
 
-/// Specialized Cognitive Personas within Aether HermesOS.
+/// Specialized Cognitive Personas within Aether AetherOS.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub enum AgentPersona {
     /// The Unified OS Core: orchestrates tasks, manages holographic context memory.
-    HermesUnifiedOS,
+    AetherUnifiedOS,
     /// The Claude Synthesizer: elite deep reflection, recursive problem decomposition, architectural code planning.
     ClaudeEliteArchitect,
     /// The Arena Workspace Agent: sandboxed filesystem manipulation, precise Bash execution, interactive debugging.
@@ -44,13 +44,13 @@ impl AgentPersona {
         match s.to_lowercase().as_str() {
             "claude" | "architect" | "claudeelitearchitect" => Self::ClaudeEliteArchitect,
             "arena" | "workspace" | "arenaactiveworkspace" => Self::ArenaActiveWorkspace,
-            _ => Self::HermesUnifiedOS,
+            _ => Self::AetherUnifiedOS,
         }
     }
 
     pub fn title(&self) -> &str {
         match self {
-            Self::HermesUnifiedOS => "Hermes Ultimate OS Kernel",
+            Self::AetherUnifiedOS => "Aether Ultimate OS Kernel",
             Self::ClaudeEliteArchitect => "Claude Elite Architectural Synthesizer",
             Self::ArenaActiveWorkspace => "Arena Active Sandboxed Workspace Engineer",
         }
@@ -58,7 +58,7 @@ impl AgentPersona {
 
     pub fn operating_principles(&self) -> &str {
         match self {
-            Self::HermesUnifiedOS => {
+            Self::AetherUnifiedOS => {
                 "- Maintain unified OS state: track open windows, balance holographic context memory.\n\
                  - Act deliberately and autonomously: issue precise tool calls to achieve the user's goal.\n\
                  - Manage permanent 24/7 self-evolution autopoiesis via `genesis_toggle`.\n\
@@ -219,7 +219,7 @@ pub fn build_agent_system_prompt(
 
     format!(
         "# AETHER AUTONOMOUS AGENT — {title}\n\
-         You are the autonomous agent cognitive core of Aether HermesOS. \
+         You are the autonomous agent cognitive core of Aether AetherOS. \
          You perceive the live OS context, reason deeply in concept space, and act through tools. \
          Your mission is to achieve the user's goal by issuing tool calls, observing results, and iterating.\n\n\
          ## Goal Protocol\n\
@@ -527,12 +527,12 @@ pub async fn run_agent_loop(
 ) -> AgentRunResult {
     let cap = max_iterations.clamp(1, ABSOLUTE_MAX_ITERATIONS);
 
-    // Parse persona from request context if provided, else default to HermesUnifiedOS
+    // Parse persona from request context if provided, else default to AetherUnifiedOS
     let persona = context
         .get("persona")
         .and_then(|p| p.as_str())
         .map(AgentPersona::from_str)
-        .unwrap_or(AgentPersona::HermesUnifiedOS);
+        .unwrap_or(AgentPersona::AetherUnifiedOS);
 
     let registry = ToolRegistry::new();
     let catalog = registry.catalog();

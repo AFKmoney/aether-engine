@@ -6,7 +6,7 @@ import sys
 
 def display_banner():
     print("===========================================================================")
-    print("⚡ AETHER HERMESOS v5.2 — PRODUCTION VIRAL PROMOTION CAMPAIGN ENGINE v2.0")
+    print("⚡ AETHER AETHEROS v5.2 — PRODUCTION VIRAL PROMOTION CAMPAIGN ENGINE v2.0")
     print("===========================================================================")
     print("Target Flagship Repository: https://github.com/AFKmoney/aether-engine")
     print("Execution Model: 135 tok/sec Edge Autocoder + Zero-Storage Twin Buffers\n")

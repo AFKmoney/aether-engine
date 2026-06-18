@@ -424,13 +424,13 @@ impl ToolRegistry {
                 let win = Window {
                     id: id.clone(),
                     app: app.clone(),
-                    title: format!("Hermes Application: {app}"),
+                    title: format!("Aether Application: {app}"),
                     status: "active".into(),
                 };
                 if let Ok(mut wins) = self.os_state.windows.lock() {
                     wins.insert(id.clone(), win);
                 }
-                (format!("[window_open success]: opened \"{app}\" with window id \"{id}\" on Hermes Desktop"), true)
+                (format!("[window_open success]: opened \"{app}\" with window id \"{id}\" on Aether Desktop"), true)
             }
             Tool::WindowClose { window_id } => {
                 let removed = if let Ok(mut wins) = self.os_state.windows.lock() {
@@ -492,7 +492,7 @@ impl ToolRegistry {
                 let script_path = skill_dir.join(format!("{}.{}", name, ext));
                 let _ = tokio::fs::write(&script_path, execution_script).await;
 
-                (format!("[skill_register success]: dynamic skill \"{name}\" registered into Hermes Core Registry!\n  Script saved to: {:?}", script_path), true)
+                (format!("[skill_register success]: dynamic skill \"{name}\" registered into Aether Core Registry!\n  Script saved to: {:?}", script_path), true)
             }
             
             // ---- Masterpiece Tools (#14 to #20) ----

@@ -13,7 +13,7 @@ Goal / Directive
 ┌────────────────────────────────────────────────────────┐
 │  AGENTIC LOOP (src/agent.rs)                           │
 │  - Stateless perceive → think → act → observe loop     │
-│  - Pluggable personas: Hermes, Claude, Arena           │
+│  - Pluggable personas: Aether, Claude, Arena           │
 │  - Speculative thought search (MCTS) + self-verification│
 └────────────────────────────────────────────────────────┘
        │
@@ -93,7 +93,7 @@ A completely reimagined, ultra-premium, professional 3-column integrated split w
 2. **Central AI Workspace**: An elite flagship chat HUD with distinctive styling for user turns, internal MCTS speculative rollouts, SIREN phase logs, active tool execution blocks, and multi-modal quick prompts.
 3. **Right File Editor & Visual Overlay Panel**: Real-time code editor linked directly to the VFS plus interactive force-directed Akasha memory network visualizers.
 
-![HermesOS Integrated Web GUI](desktop_screenshot.png)
+![AetherOS Integrated Web GUI](desktop_screenshot.png)
 
 ---
 
@@ -104,7 +104,7 @@ The server exposes an OpenAI-compatible HTTP service listening on port `3004`. T
 | Method | Endpoint | Purpose |
 |--------|----------|---------|
 | `POST` | `/v1/agent/run` | Execute autonomous multi-persona 24-tool agent control loop |
-| `GET`  | `/desktop` | **HermesOS v5.0 Unified Interactive Operating System Desktop GUI** |
+| `GET`  | `/desktop` | **AetherOS v5.0 Unified Interactive Operating System Desktop GUI** |
 | `POST` | `/v1/duet/run` | Run Duet twin parallel zero-storage collaborative inference |
 | `POST` | `/v1/siren/sync` | Project candidate logic through Nano-SIREN periodic hat |
 | `POST` | `/v1/duet/flush` | Wipes simulated CPU L1/L2 cache ring buffer |

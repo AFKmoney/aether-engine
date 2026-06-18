@@ -1430,10 +1430,10 @@ pub async fn list_tools(State(state): State<AppState>) -> impl IntoResponse {
 }
 
 // ===========================================================================
-// HERMES UNIFIED OS ADDITIONS (v3.3 Ultimate) — Web Desktop & Live State
+// AETHER UNIFIED OS ADDITIONS (v3.3 Ultimate) — Web Desktop & Live State
 // ===========================================================================
 
-/// Render the state-of-the-art Hermes Unified Web Desktop application (`GET /desktop`).
+/// Render the state-of-the-art Aether Unified Web Desktop application (`GET /desktop`).
 pub async fn desktop_gui() -> impl IntoResponse {
     axum::response::Html(crate::desktop::render_desktop_gui())
 }

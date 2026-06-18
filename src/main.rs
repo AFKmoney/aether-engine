@@ -124,7 +124,7 @@ async fn main() {
         // --- Agentic layer (v3.2) ---
         .route("/v1/agent/run", post(handlers::agent_run))
         .route("/v1/tools", get(handlers::list_tools))
-        // --- Hermes Unified OS Additions (v3.3 Ultimate) ---
+        // --- Aether Unified OS Additions (v3.3 Ultimate) ---
         .route("/desktop", get(handlers::desktop_gui))
         .route("/os/state", get(handlers::get_os_state))
         .route("/v1/skills", get(handlers::list_skills))
@@ -148,7 +148,7 @@ async fn main() {
         .expect("bind 3004");
 
     eprintln!(
-        "⚡ [Aether Engine HermesOS v5.0 Ultimate God-Mode] Epoch Kernel listening on :{PORT} (backend: {backend})\n\
+        "⚡ [Aether Engine AetherOS v5.0 Ultimate God-Mode] Epoch Kernel listening on :{PORT} (backend: {backend})\n\
          🧠 24 Divine OS Tools enabled (Siren Recurrent Hat, Zero-Storage L1/L2 Buffer Dual-Inference)\n\
          🌐 Live Cyberpunk OS Web Desktop accessible at http://localhost:{PORT}/desktop\n\
          🚀 Infinite Power online: Twin 1.2B Duet Concurrency + Recurrent Sinusoidal Activation Waves"
