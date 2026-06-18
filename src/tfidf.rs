@@ -68,6 +68,7 @@ pub struct SparseVec {
 /// [`remove_document`](Self::remove_document), and the IDF of every term
 /// updates accordingly. This is what allows the memory graph to replace a
 /// node in-place without rebuilding the corpus from scratch.
+#[derive(Clone)]
 pub struct TfidfVectorizer {
     /// Document frequency per term: how many documents contain the term.
     pub df: HashMap<String, usize>,

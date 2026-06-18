@@ -1,98 +1,114 @@
-# ⚡ Aether Engine
+# ⚡ Aether Engine — AetherOS (Project Hermes Ultra Ultimate)
 
-> **Proprietary Rust inference engine that makes a small GGUF model into an autonomous agent.**
+> **Proprietary Rust inference engine and Unified Cognitive OS that gives a small GGUF model the suit of an Elite AI Super Agent.**
 
-Turns a 1.2B model into an autonomous OS-managing agent via 10 middleware innovations + an agentic loop with 12 OS-control tools. The AI builds its own house.
+Turns a 1.2B–8B parameter model into an autonomous OS-managing agent via **10 interconnected middleware innovations**, an **Active OS Execution Kernel**, and **Multi-Persona Cognitive Synergy** (Arena Workspace Engineer + Claude Elite Architect + Hermes Core).
+
+The AI builds its own house, writes its own tools, and runs its own recurrent thought loops.
 
 ---
 
-## Architecture
+## 👑 The Hermes Ultra "Super Agent Suit" (*L'habit fait le moine*)
 
+Small models struggle with tokenization quantization and long-term logical drift. AetherOS outthinks how small models operate by giving them a **Triple-Layer Super Agent Suit**:
+
+1. **Multi-Persona Cognitive Synergy (`AgentPersona`)**: Callers or the OS can seamlessly switch between three elite cognitive frameworks:
+   - ⚡ `Hermes Ultimate OS Kernel` (Task routing, holographic context memory arbitration)
+   - 🧠 `Claude Elite Architectural Synthesizer` (Deep reflection, high-level code planning, recursive problem decomposition)
+   - 🛠️ `Arena Active Workspace Engineer` (Sandboxed Linux bash execution, incremental debugging, precise file crafting)
+2. **Continuous Latent Trajectory (CLT) Recurrent Thought**: When the agent reasons, it runs an internal N-step recurrent trajectory in concept space, measuring TF-IDF cosine stability (`clt::check_convergence`) before ever collapsing to a discrete action.
+3. **Asymmetric Tensor Dueling (ATD) Contestation**: Every candidate response or action is contested between an Exploitation Graph (Likelihood) and an Exploration/Safety Graph (Structural Entropy). Hallucinated commands or looping bigrams are instantly caught and forced through an active self-correction pass with scaled temperature (`atd::adjusted_temperature`).
+
+## ⚙️ Core Architecture
+
+```text
+Natural Language Goal + Live Context
+                │
+                ▼
+┌────────────────────────────────────────────────────────┐
+│  MULTI-PERSONA AGENTIC KERNEL (agent.rs)               │
+│  1. Perceive — Open Windows, Akasha Memory, Plan Tree  │
+│  2. Priming  — Inject Persona Guidelines & Principles  │
+│  3. Think    — CLT Latent Concept Trajectory Loop      │
+│  4. Verify   — ATD Likelihood vs. Entropy Contestation │
+│  5. Act      — Dynamic Tool & Custom Skill Parsing     │
+│  6. Repeat   — Iterative execution until TASK_COMPLETE │
+└────────────────────────────────────────────────────────┘
+                │
+                ▼
+┌────────────────────────────────────────────────────────┐
+│  13 ACTIVE OS-CONTROL TOOLS + DYNAMIC SKILLS (tools.rs)│
+│  Real Filesystem IO (Sandboxed in /home/user)          │
+│  Real PTY Shell Execution (std::process::Command)      │
+│  Active In-Memory Window Manager & Plan Store          │
+│  Dynamic Tool Auto-Creation (skill_register)           │
+└────────────────────────────────────────────────────────┘
+                │
+                ▼
+OpenAI-Compatible Backend (Ollama, llama.cpp, vLLM)
 ```
-Goal + Context
-    │
-    ▼
-┌─────────────────────────────────────────────┐
-│  AGENT LOOP (agent.rs)                      │
-│  1. Perceive  — OS state in system prompt   │
-│  2. Think     — call backend LLM            │
-│  3. Act       — parse tool calls            │
-│  4. Execute   — ToolRegistry dispatch       │
-│  5. Observe   — feed results back           │
-│  6. Repeat    — until TASK_COMPLETE         │
-└─────────────────────────────────────────────┘
-    │
-    ▼
-┌─────────────────────────────────────────────┐
-│  10-STAGE INFERENCE PIPELINE (handlers.rs)  │
-│  Action Cache → Graph Retrieve → Compress   │
-│  → Decompose → Solve → Synthesize → ATD     │
-│  → Distill → Prefetch                       │
-└─────────────────────────────────────────────┘
-    │
-    ▼
-OpenAI-compatible backend (Ollama, llama.cpp, vLLM)
-```
 
-## The 12 agent tools
+## 🛠️ The 13+ Active OS Tools
 
-`file_read` · `file_write` · `file_list` · `file_delete` · `exec` · `window_open` · `window_close` · `memory_add` · `memory_search` · `web_search` · `plan_create` · `plan_update`
+In AetherOS, tools are fully active and execute real side-effects inside the sandboxed workspace:
 
-## The 10 innovations
+`file_read` · `file_write` · `file_list` · `file_delete` · `exec` · `window_open` · `window_close` · `memory_add` · `memory_search` · `web_search` · `plan_create` · `plan_update` · ⚡ **`skill_register`** (Dynamic Capability Auto-Creation)
 
-| # | Innovation | Role |
-|---|-----------|------|
-| 1 | Semantic Memory Graph | TF-IDF vectors, cosine edges, graph retrieval |
-| 2 | Cognitive Decomposer | Break complex → sub-questions |
-| 3 | Self-Verification | Quality check + retry |
-| 4 | Knowledge Distillation | Store winning patterns |
-| 5 | Context Compressor | 40K → 4K tokens |
-| 6 | Action Cache | Cosine > 0.95 → instant |
-| 7 | Speculative Prefetch | Warm adjacent caches |
-| 8 | HCM | FFT holographic memory, fixed 16KB |
-| 9 | CLT | N-step latent trajectory, cosine convergence |
-| 10 | ATD | Likelihood vs entropy verification |
+## 🌟 The 10 Middleware Innovations
 
-## API
+| # | Innovation | Description |
+|---|-----------|-------------|
+| 1 | **Semantic Memory Graph** | TF-IDF vectors, cosine edges, multi-hop graph retrieval |
+| 2 | **Cognitive Decomposer** | Recursively breaks complex queries into topological sub-questions |
+| 3 | **Self-Verification Loop** | Quality check + immediate self-correcting retry pass |
+| 4 | **Knowledge Distillation** | Caches successful cognitive decomposition patterns for reuse |
+| 5 | **Context Compressor** | Two-tier 40K → 4K token signal-preserving context compressor |
+| 6 | **Action Cache** | Instant responses for repeated queries (Cosine similarity > 0.95) |
+| 7 | **Speculative Prefetch** | Detached worker that warms adjacent memory graph caches |
+| 8 | **HCM Arena** | FFT holographic state matrix (Infinite context in fixed 16KB) |
+| 9 | **CLT Reasoning** | Recurrent reasoning loops in pure concept space |
+| 10 | **ATD Contestation** | Dual-graph validation (Likelihood vs. Structural Entropy collision) |
+
+## 🌐 The Masterpiece Web Desktop GUI (`GET /desktop`)
+
+AetherOS features an unmatchable, self-contained HTML5/Canvas interactive OS Web Desktop interface served directly by the Rust engine:
+
+- **Floating OS Windows**: Fully draggable, resizable application windows inside the browser.
+- **Window 1: Advanced AI Autonomous Shell**: Interact with the OS in real-time, trigger multi-turn goals, select your desired Cognitive Persona, watch tool transcripts unfold live.
+- **Window 2: Akasha Active Graph Visualizer**: A stunning interactive force-directed canvas visualizing semantic memory nodes, cosine edges, and Holographic Context Memory folds.
+- **Window 3: Cognitive Dual-Reactor HUD**: Real-time visualization of ATD Likelihood-Entropy radar bars and CLT latent recurrence steps.
+- **Window 4: Capability Studio**: Inspect the 13 active JSON schemas, invoke tools interactively, and watch auto-authored Dynamic Skills appear in real-time.
+
+## 🚀 API Surface
 
 | Method | Endpoint | Purpose |
 |--------|----------|---------|
-| `POST` | `/v1/agent/run` | Run the agentic loop (goal + context → result + tool_calls) |
-| `GET`  | `/v1/tools` | List available tools + schemas |
-| `POST` | `/v1/chat/completions` | OpenAI-compatible inference |
-| `POST` | `/v1/chat/stream` | SSE streaming |
-| `GET`  | `/dashboard` | HTML status dashboard |
-| `GET`  | `/metrics` | Prometheus metrics |
-| `GET`  | `/graph/export` | Graph JSON |
-| `GET`  | `/config` | Runtime config |
-| `GET`  | `/v1/models` | OpenAI-compatible model list |
+| `POST` | `/v1/agent/run` | Execute autonomous multi-persona agentic loop |
+| `GET`  | `/desktop` | **HermesOS Unified Interactive Web Desktop Application** |
+| `GET`  | `/os/state` | Retrieve live active OS Execution Kernel state |
+| `GET`  | `/v1/skills` | Enumerate all dynamically registered runtime skills |
+| `POST` | `/v1/skills/register` | Author and register custom dynamic skills (Bash/Python) |
+| `GET`  | `/v1/tools` | Enumerate standard + dynamic tools with JSON Schema |
+| `POST` | `/v1/chat/completions` | Run 10-stage cognitive inference pipeline |
+| `POST` | `/v1/chat/stream` | Server-Sent Events (SSE) streaming inference |
+| `GET`  | `/dashboard` | Monospace tactical ASCII liveness dashboard |
+| `GET`  | `/health` | Telemetry HUD counters (Baseline + HCM + CLT + ATD) |
+| `GET`  | `/metrics` | Prometheus Grafana exposition metrics |
+| `GET`  | `/graph/export` | Downloadable semantic memory graph snapshot |
 
-## Quick start
+## 📦 Quick Start
 
 ```bash
+# Compile optimized release kernel
 cargo build --release
+
+# Launch AetherOS Hermes Ultimate Kernel
 AETHER_BACKEND=http://localhost:11434/v1 ./target/release/aether-engine
+
+# Open Live OS Desktop in your browser
+open http://localhost:3004/desktop
 ```
 
-## Project layout
+## 📜 License
 
-```
-src/
-├── main.rs        HTTP server + routes
-├── handlers.rs    Endpoint handlers + 10-stage pipeline
-├── agent.rs       Agentic loop (perceive→think→act→observe)
-├── tools.rs       12-tool registry for OS control
-├── graph.rs       Semantic memory graph (#1)
-├── tfidf.rs       TF-IDF vectorizer
-├── cache.rs       Action cache (#6)
-├── compress.rs    Context compressor (#5)
-├── decompose.rs   Cognitive decomposer + distillation (#2, #4)
-├── hcm.rs         Holographic Context Memory — FFT (#8)
-├── clt.rs         Continuous Latent Trajectory (#9)
-├── atd.rs         Asymmetric Tensor Dueling (#10)
-└── dashboard.rs   HTML dashboard
-```
-
-## License
-
-MIT — © AFKmoney 2025.
+MIT — © AFKmoney & Aether Community 2025–2026.

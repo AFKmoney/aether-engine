@@ -1416,8 +1416,8 @@ pub async fn agent_run(
 /// The order of tools in the response is stable across calls (matches the
 /// order in [`ToolRegistry::catalog`](crate::tools::ToolRegistry::catalog))
 /// so callers can cache or render the list without re-sorting.
-pub async fn list_tools(State(_state): State<AppState>) -> impl IntoResponse {
-    let registry = crate::tools::ToolRegistry::new();
+pub async fn list_tools(State(state): State<AppState>) -> impl IntoResponse {
+    let registry = crate::tools::ToolRegistry::with_os_state(state.os_state.clone());
     let catalog = registry.catalog();
     Json(json!({
         "ok": true,
@@ -1428,3 +1428,141 @@ pub async fn list_tools(State(_state): State<AppState>) -> impl IntoResponse {
         })).collect::<Vec<_>>(),
     }))
 }
+
+// ===========================================================================
+// HERMES UNIFIED OS ADDITIONS (v3.3 Ultimate) — Web Desktop & Live State
+// ===========================================================================
+
+/// Render the state-of-the-art Hermes Unified Web Desktop application (`GET /desktop`).
+pub async fn desktop_gui() -> impl IntoResponse {
+    axum::response::Html(crate::desktop::render_desktop_gui())
+}
+
+/// Retrieve live OS Execution Kernel state (`GET /os/state`).
+pub async fn get_os_state(State(state): State<AppState>) -> impl IntoResponse {
+    let windows = if let Ok(wins) = state.os_state.windows.lock() {
+        wins.clone()
+    } else { HashMap::new() };
+
+    let active_plan = if let Ok(plan) = state.os_state.active_plan.lock() {
+        plan.clone()
+    } else { None };
+
+    let skills = state.os_state.skills.list();
+
+    Json(json!({
+        "ok": true,
+        "windows": windows,
+        "active_plan": active_plan,
+        "dynamic_skills_count": skills.len(),
+    }))
+}
+
+/// List all dynamically registered custom skills (`GET /v1/skills`).
+pub async fn list_skills(State(state): State<AppState>) -> impl IntoResponse {
+    let skills = state.os_state.skills.list();
+    Json(json!({
+        "ok": true,
+        "skills": skills,
+    }))
+}
+
+/// Dynamically register a new custom skill/capability (`POST /v1/skills/register`).
+pub async fn register_skill(
+    State(state): State<AppState>,
+    Json(skill): Json<crate::tools::DynamicSkill>,
+) -> impl IntoResponse {
+    if skill.name.is_empty() || skill.execution_script.is_empty() {
+        return Json(json!({
+            "ok": false,
+            "error": "Skill name and execution script cannot be empty."
+        })).into_response();
+    }
+
+    state.os_state.skills.register(skill.clone());
+
+    // Persist script to disk
+    let _ = tokio::fs::create_dir_all("skills").await;
+    let ext = if skill.language == "python" { "py" } else { "sh" };
+    let path = format!("skills/{}.{}", skill.name, ext);
+    let _ = tokio::fs::write(&path, &skill.execution_script).await;
+
+    Json(json!({
+        "ok": true,
+        "message": format!("Successfully registered dynamic skill \"{}\"", skill.name),
+        "skill": skill,
+        "persisted_path": path,
+    })).into_response()
+}
+
+// ===========================================================================
+// REVOLUTIONARY MASTERPIECE ADDITIONS (v4.0 History-Book Paradigm)
+// ===========================================================================
+
+/// Retrieve all active Genesis 24/7 Autopoietic evolution logs (`GET /v1/genesis/logs`).
+pub async fn get_genesis_logs(State(state): State<AppState>) -> impl IntoResponse {
+    let logs = state.os_state.genesis.get_logs().await;
+    Json(json!({
+        "ok": true,
+        "genesis_logs": logs,
+    }))
+}
+
+/// Toggle the active state of The Genesis Reactor (`POST /v1/genesis/toggle`).
+pub async fn toggle_genesis(State(state): State<AppState>) -> impl IntoResponse {
+    let active = state.os_state.genesis.toggle().await;
+    Json(json!({
+        "ok": true,
+        "genesis_active": active,
+    }))
+}
+
+/// Trigger Neural Memory Consolidation Slumber Protocol (`POST /v1/hypnos/sleep`).
+pub async fn hypnos_sleep_protocol(State(state): State<AppState>) -> impl IntoResponse {
+    let report = crate::hypnos::execute_hypnos_slumber(state.graph.clone(), state.hcm.clone()).await;
+    Json(json!({
+        "ok": true,
+        "message": "Hypnos Slumber Protocol executed successfully. Scattered memories consolidated into Holographic Matrix.",
+        "consolidation_report": report,
+    }))
+}
+
+/// Request body for MCTS speculative rollouts.
+#[derive(Deserialize)]
+pub struct MCTSSpecRequest {
+    pub query: String,
+    pub candidate_branches: Vec<String>,
+}
+
+/// Launch a speculative Monte Carlo Thought Search exploration tree (`POST /v1/mcts/speculate`).
+pub async fn mcts_speculation_tree(
+    State(state): State<AppState>,
+    Json(req): Json<MCTSSpecRequest>,
+) -> impl IntoResponse {
+    let atd_config = crate::atd::ATDConfig::default();
+    let vectorizer = {
+        let g = state.graph.lock().await;
+        g.vectorizer.clone()
+    };
+
+    let branches = if req.candidate_branches.is_empty() {
+        vec![
+            format!("Explore self-evolving paradigm for `{}`", req.query),
+            format!("Decompose `{}` into multi-modal sandboxed structural components", req.query),
+            format!("Synthesize topological TF-IDF graph retrieval matrix for `{}`", req.query),
+        ]
+    } else {
+        req.candidate_branches
+    };
+
+    let (best_thought, tree_root) = crate::mcts::execute_mcts_speculation(&req.query, &branches, &atd_config, &vectorizer);
+
+    Json(json!({
+        "ok": true,
+        "query": req.query,
+        "optimal_speculative_thought": best_thought,
+        "mcts_exploration_tree": tree_root,
+    }))
+}
+
+
